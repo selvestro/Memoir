@@ -2,7 +2,7 @@
 //  Result.m
 //  Memoir
 //
-//  Created by dima on 25.11.15.
+//  Created by Dmitry Seliverstov on 26/11/15.
 //  Copyright (c) 2015 seliverstov. All rights reserved.
 //
 
@@ -13,9 +13,11 @@
 
 @implementation Result
 
-@dynamic score;
 @dynamic result;
-@dynamic forUser;
+@dynamic score;
+@dynamic objectId;
+@dynamic uid;
 @dynamic forTest;
+@dynamic forUser;
 
 @end

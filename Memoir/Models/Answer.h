@@ -2,7 +2,7 @@
 //  Answer.h
 //  Memoir
 //
-//  Created by dima on 25.11.15.
+//  Created by Dmitry Seliverstov on 26/11/15.
 //  Copyright (c) 2015 seliverstov. All rights reserved.
 //
 
@@ -17,6 +17,13 @@
 @property (nonatomic, retain) NSString * category;
 @property (nonatomic, retain) NSString * question;
 @property (nonatomic, retain) NSString * topic;
+@property (nonatomic, retain) NSNumber * isImage;
+@property (nonatomic, retain) NSNumber * isAudio;
+@property (nonatomic, retain) NSNumber * isText;
+@property (nonatomic, retain) NSString * fileImage;
+@property (nonatomic, retain) NSString * fileAudio;
+@property (nonatomic, retain) NSNumber * objectId;
+@property (nonatomic, retain) NSString * uid;
 @property (nonatomic, retain) Question *forQuestion;
 @property (nonatomic, retain) NSSet *inTests;
 @end

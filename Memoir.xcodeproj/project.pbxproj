@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		32A86FBC1C0633AF007B5788 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A86FB31C0633AF007B5788 /* Answer.m */; };
-		32A86FBD1C0633AF007B5788 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A86FB51C0633AF007B5788 /* Question.m */; };
-		32A86FBE1C0633AF007B5788 /* Result.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A86FB71C0633AF007B5788 /* Result.m */; };
-		32A86FBF1C0633AF007B5788 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A86FB91C0633AF007B5788 /* Test.m */; };
-		32A86FC01C0633AF007B5788 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A86FBB1C0633AF007B5788 /* User.m */; };
 		32A86FC91C0633B7007B5788 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A86FC21C0633B7007B5788 /* MainViewController.m */; };
 		32A86FCA1C0633B7007B5788 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A86FC41C0633B7007B5788 /* QuestionViewController.m */; };
 		32A86FCB1C0633B7007B5788 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A86FC61C0633B7007B5788 /* ResultsViewController.m */; };
@@ -23,6 +18,13 @@
 		32AE2E5A1C06110D00E57EB5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32AE2E591C06110D00E57EB5 /* Images.xcassets */; };
 		32AE2E5D1C06110D00E57EB5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32AE2E5B1C06110D00E57EB5 /* LaunchScreen.xib */; };
 		32AE2E691C06110D00E57EB5 /* MemoirTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AE2E681C06110D00E57EB5 /* MemoirTests.m */; };
+		846CAE2D1C0720CF00C375D8 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 846CAE2C1C0720CF00C375D8 /* DataManager.m */; };
+		846CE5BB1C07355A00AEFB26 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = 846CE5B21C07355A00AEFB26 /* Answer.m */; };
+		846CE5BC1C07355A00AEFB26 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 846CE5B41C07355A00AEFB26 /* Question.m */; };
+		846CE5BD1C07355A00AEFB26 /* Result.m in Sources */ = {isa = PBXBuildFile; fileRef = 846CE5B61C07355A00AEFB26 /* Result.m */; };
+		846CE5BE1C07355A00AEFB26 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 846CE5B81C07355A00AEFB26 /* Test.m */; };
+		846CE5BF1C07355A00AEFB26 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 846CE5BA1C07355A00AEFB26 /* User.m */; };
+		84BB8A021C072A6000A1B51A /* RecordAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BB8A011C072A6000A1B51A /* RecordAudioViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,16 +38,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		32A86FB21C0633AF007B5788 /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Answer.h; sourceTree = "<group>"; };
-		32A86FB31C0633AF007B5788 /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Answer.m; sourceTree = "<group>"; };
-		32A86FB41C0633AF007B5788 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
-		32A86FB51C0633AF007B5788 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
-		32A86FB61C0633AF007B5788 /* Result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Result.h; sourceTree = "<group>"; };
-		32A86FB71C0633AF007B5788 /* Result.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Result.m; sourceTree = "<group>"; };
-		32A86FB81C0633AF007B5788 /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
-		32A86FB91C0633AF007B5788 /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
-		32A86FBA1C0633AF007B5788 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		32A86FBB1C0633AF007B5788 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		32A86FC11C0633B7007B5788 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		32A86FC21C0633B7007B5788 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		32A86FC31C0633B7007B5788 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
@@ -66,6 +58,20 @@
 		32AE2E621C06110D00E57EB5 /* MemoirTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemoirTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32AE2E671C06110D00E57EB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32AE2E681C06110D00E57EB5 /* MemoirTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoirTests.m; sourceTree = "<group>"; };
+		846CAE2B1C0720CF00C375D8 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		846CAE2C1C0720CF00C375D8 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		846CE5B11C07355A00AEFB26 /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Answer.h; sourceTree = "<group>"; };
+		846CE5B21C07355A00AEFB26 /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Answer.m; sourceTree = "<group>"; };
+		846CE5B31C07355A00AEFB26 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		846CE5B41C07355A00AEFB26 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		846CE5B51C07355A00AEFB26 /* Result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Result.h; sourceTree = "<group>"; };
+		846CE5B61C07355A00AEFB26 /* Result.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Result.m; sourceTree = "<group>"; };
+		846CE5B71C07355A00AEFB26 /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
+		846CE5B81C07355A00AEFB26 /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
+		846CE5B91C07355A00AEFB26 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		846CE5BA1C07355A00AEFB26 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		84BB8A001C072A6000A1B51A /* RecordAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordAudioViewController.h; sourceTree = "<group>"; };
+		84BB8A011C072A6000A1B51A /* RecordAudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordAudioViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,16 +95,16 @@
 		32A86FAF1C06334F007B5788 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				32A86FB21C0633AF007B5788 /* Answer.h */,
-				32A86FB31C0633AF007B5788 /* Answer.m */,
-				32A86FB41C0633AF007B5788 /* Question.h */,
-				32A86FB51C0633AF007B5788 /* Question.m */,
-				32A86FB61C0633AF007B5788 /* Result.h */,
-				32A86FB71C0633AF007B5788 /* Result.m */,
-				32A86FB81C0633AF007B5788 /* Test.h */,
-				32A86FB91C0633AF007B5788 /* Test.m */,
-				32A86FBA1C0633AF007B5788 /* User.h */,
-				32A86FBB1C0633AF007B5788 /* User.m */,
+				846CE5B11C07355A00AEFB26 /* Answer.h */,
+				846CE5B21C07355A00AEFB26 /* Answer.m */,
+				846CE5B31C07355A00AEFB26 /* Question.h */,
+				846CE5B41C07355A00AEFB26 /* Question.m */,
+				846CE5B51C07355A00AEFB26 /* Result.h */,
+				846CE5B61C07355A00AEFB26 /* Result.m */,
+				846CE5B71C07355A00AEFB26 /* Test.h */,
+				846CE5B81C07355A00AEFB26 /* Test.m */,
+				846CE5B91C07355A00AEFB26 /* User.h */,
+				846CE5BA1C07355A00AEFB26 /* User.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -113,6 +119,8 @@
 		32A86FB11C06335A007B5788 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				84BB8A001C072A6000A1B51A /* RecordAudioViewController.h */,
+				84BB8A011C072A6000A1B51A /* RecordAudioViewController.m */,
 				32A86FC11C0633B7007B5788 /* MainViewController.h */,
 				32A86FC21C0633B7007B5788 /* MainViewController.m */,
 				32A86FC31C0633B7007B5788 /* QuestionViewController.h */,
@@ -146,6 +154,7 @@
 		32AE2E481C06110D00E57EB5 /* Memoir */ = {
 			isa = PBXGroup;
 			children = (
+				846CAE2A1C07208900C375D8 /* Data */,
 				32A86FB11C06335A007B5788 /* Controllers */,
 				32A86FB01C063354007B5788 /* Views */,
 				32A86FAF1C06334F007B5788 /* Models */,
@@ -184,6 +193,15 @@
 				32AE2E671C06110D00E57EB5 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		846CAE2A1C07208900C375D8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				846CAE2B1C0720CF00C375D8 /* DataManager.h */,
+				846CAE2C1C0720CF00C375D8 /* DataManager.m */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,18 +305,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32A86FC01C0633AF007B5788 /* User.m in Sources */,
-				32A86FBE1C0633AF007B5788 /* Result.m in Sources */,
+				846CE5BE1C07355A00AEFB26 /* Test.m in Sources */,
+				846CAE2D1C0720CF00C375D8 /* DataManager.m in Sources */,
+				84BB8A021C072A6000A1B51A /* RecordAudioViewController.m in Sources */,
 				32AE2E4F1C06110D00E57EB5 /* AppDelegate.m in Sources */,
 				32A86FCC1C0633B7007B5788 /* SettingsViewController.m in Sources */,
 				32AE2E521C06110D00E57EB5 /* Memoir.xcdatamodeld in Sources */,
 				32A86FC91C0633B7007B5788 /* MainViewController.m in Sources */,
+				846CE5BD1C07355A00AEFB26 /* Result.m in Sources */,
+				846CE5BF1C07355A00AEFB26 /* User.m in Sources */,
 				32A86FCB1C0633B7007B5788 /* ResultsViewController.m in Sources */,
-				32A86FBD1C0633AF007B5788 /* Question.m in Sources */,
 				32A86FCA1C0633B7007B5788 /* QuestionViewController.m in Sources */,
-				32A86FBF1C0633AF007B5788 /* Test.m in Sources */,
+				846CE5BC1C07355A00AEFB26 /* Question.m in Sources */,
 				32AE2E4C1C06110D00E57EB5 /* main.m in Sources */,
-				32A86FBC1C0633AF007B5788 /* Answer.m in Sources */,
+				846CE5BB1C07355A00AEFB26 /* Answer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,7 +2,7 @@
 //  Result.h
 //  Memoir
 //
-//  Created by dima on 25.11.15.
+//  Created by Dmitry Seliverstov on 26/11/15.
 //  Copyright (c) 2015 seliverstov. All rights reserved.
 //
 
@@ -13,9 +13,11 @@
 
 @interface Result : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * score;
 @property (nonatomic, retain) NSNumber * result;
-@property (nonatomic, retain) User *forUser;
+@property (nonatomic, retain) NSNumber * score;
+@property (nonatomic, retain) NSNumber * objectId;
+@property (nonatomic, retain) NSString * uid;
 @property (nonatomic, retain) Test *forTest;
+@property (nonatomic, retain) User *forUser;
 
 @end

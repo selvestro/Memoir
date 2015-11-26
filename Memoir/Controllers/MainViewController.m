@@ -11,10 +11,9 @@
 #import "MainViewController.h"
 #import "QuestionViewController.h"
 #import "User.h"
+#import "DataManager.h"
 
 @interface MainViewController ()
-
-@property (strong, nonatomic) AppDelegate *app;
 
 @property (weak, nonatomic) IBOutlet UIView *userOneView;
 @property (weak, nonatomic) IBOutlet UILabel *userOneLabel;
@@ -50,60 +49,12 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  
-  self.app = [[UIApplication sharedApplication] delegate];
-  
-  [self setupUsers];
+    
+  [DataManager uploadInitialData];
+  [DataManager uploadQuestions];
+
+  self.users = [DataManager allUsers];
 }
-
-- (void)setupUsers {
-  
-  NSManagedObjectContext *context = self.app.managedObjectContext;
-  
-  NSError *error;
-  NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"User"];
-  self.users = [context executeFetchRequest:fetchRequest error:&error];
-  
-  NSLog(@"USERS: %@", self.users);
-  
-  if (self.users.count == 0) {
-    NSManagedObject *user1 = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
-    [user1 setValue:@"Пользователь1" forKey:@"name"];
-    [user1 setValue:@"1" forKey:@"userId"];
-    [user1 setValue:@"3" forKey:@"category"];
-    [user1 setValue:[NSNumber numberWithBool:YES] forKey:@"isTraining"];
-    [user1 setValue:@0 forKey:@"score"];
-    [user1 setValue:@0 forKey:@"countMoves"];
-    
-    NSManagedObject *user2 = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
-    [user2 setValue:@"Пользователь2" forKey:@"name"];
-    [user2 setValue:@"2" forKey:@"userId"];
-    [user2 setValue:@"3" forKey:@"category"];
-    [user2 setValue:[NSNumber numberWithBool:NO] forKey:@"isTraining"];
-    [user2 setValue:@0 forKey:@"score"];
-    [user1 setValue:@0 forKey:@"countMoves"];
-    
-    NSManagedObject *user3 = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
-    [user3 setValue:@"Пользователь3" forKey:@"name"];
-    [user3 setValue:@"3" forKey:@"userId"];
-    [user3 setValue:@"2" forKey:@"category"];
-    [user3 setValue:[NSNumber numberWithBool:YES] forKey:@"isTraining"];
-    [user3 setValue:@0 forKey:@"score"];
-    [user1 setValue:@0 forKey:@"countMoves"];
-    
-    NSManagedObject *user4 = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
-    [user4 setValue:@"Пользователь4" forKey:@"name"];
-    [user4 setValue:@"4" forKey:@"userId"];
-    [user4 setValue:@"1" forKey:@"category"];
-    [user4 setValue:[NSNumber numberWithBool:NO] forKey:@"isTraining"];
-    [user4 setValue:@0 forKey:@"score"];
-    [user1 setValue:@0 forKey:@"countMoves"];
-    
-    [self.app saveContext];
-  }
-
-}
-
 
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
