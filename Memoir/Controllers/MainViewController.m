@@ -116,12 +116,16 @@
 - (void)configureAppearance {
   for (User *user in self.users) {
     if ([user.userId isEqualToString:@"1"]) {
+      self.userOneLabel.text = user.name;
       [self.userOneSwitch setOn:[user.isTraining isEqual:@1]];
     } else if ([user.userId isEqualToString:@"2"]) {
+      self.userTwoLabel.text = user.name;
       [self.userTwoSwitch setOn:[user.isTraining isEqual:@1]];
     } else if ([user.userId isEqualToString:@"3"]) {
+      self.userThreeLabel.text = user.name;
       [self.userThreeSwitch setOn:[user.isTraining isEqual:@1]];
     } else if ([user.userId isEqualToString:@"4"]) {
+      self.userFourLabel.text = user.name;
       [self.userFourSwitch setOn:[user.isTraining isEqual:@1]];
     }
   }
@@ -192,6 +196,10 @@
     controller.navigationItem.hidesBackButton = YES;
   }
   
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+  return YES;
 }
 
 @end
