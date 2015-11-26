@@ -14,7 +14,9 @@
 @interface QuestionViewController ()
 
 @property (strong, nonatomic) Question *question;
-
+@property (strong, nonatomic) NSTimer *timer;
+@property (assign, nonatomic) BOOL isAnswered;
+@property (assign, nonatomic) NSInteger timeLeft;
 @end
 
 @implementation QuestionViewController
@@ -43,10 +45,21 @@
   [self.answerThreeLabel setText:self.question.option3];
 }
 
+- (void)updateCounter:(NSTimer *)timer {
+  if (self.timeLeft >= 0) {
+      [self.timerLabel setText:[NSString stringWithFormat:@"%ld", (long)self.timeLeft]];
+  }
+  if (self.timeLeft == 0) {
+    [self performSelector:@selector(noAnswer) withObject:nil afterDelay:1.0];
+  }
+  self.timeLeft = self.timeLeft - 1;
+}
+
 - (IBAction)answerButtonPressed:(UIButton *)sender {
-  
+  [self.timer invalidate];
+  self.timer = nil;
+  self.isAnswered = YES;
   NSString *answer;
-  
   switch (sender.tag) {
     case 1:
       answer = self.answerOneLabel.text;
@@ -60,15 +73,47 @@
     default:
       break;
   }
-  
   if ([answer isEqualToString:self.question.answer]) {
-    self.resultView.backgroundColor = [UIColor greenColor];
+    [self rightAnswer];
   } else {
-    self.resultView.backgroundColor = [UIColor redColor];
+    [self wrongAnswer];
+  }
+}
+
+- (void)rightAnswer {
+  self.currentUser.score = [NSNumber numberWithInteger:self.currentUser.score.integerValue + 1];
+  self.resultView.backgroundColor = [UIColor greenColor];
+  [self.questionLevelLabel setText:[NSString stringWithFormat:@"%@", self.currentUser.score]];
+  [self performSelector:@selector(nextQuestion) withObject:self afterDelay:1.0];
+}
+
+- (void)wrongAnswer {
+  self.currentUser.score = [NSNumber numberWithInteger:self.currentUser.score.integerValue - 1];
+  self.resultView.backgroundColor = [UIColor redColor];
+  [self.questionLevelLabel setText:[NSString stringWithFormat:@"%@", self.currentUser.score]];
+  [self performSelector:@selector(nextQuestion) withObject:self afterDelay:1.0];
+}
+
+- (void)noAnswer {
+  [self.timer invalidate];
+  self.timer = nil;
+  if (self.isAnswered == NO) {
+    self.currentUser.score = [NSNumber numberWithInteger:self.currentUser.score.integerValue - 1];
+    self.resultView.backgroundColor = [UIColor orangeColor];
+    [self.questionLevelLabel setText:[NSString stringWithFormat:@"%@", self.currentUser.score]];
+    [self performSelector:@selector(nextQuestion) withObject:self afterDelay:1.0];
   }
 }
 
 - (IBAction)nextButtonPressed:(UIButton *)sender {
+  [self nextQuestion];
+}
+
+- (void)nextQuestion {
+  [self.timer invalidate];
+  self.timer = nil;
+  
+
   [self performSegueWithIdentifier:@"Next" sender:nil];
 }
 
@@ -88,6 +133,19 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
   return YES;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+  
+  self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
+  self.timeLeft = 10;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+  [super viewWillDisappear:animated];
+  [self.timer invalidate];
+  self.timer = nil;
 }
 
 @end

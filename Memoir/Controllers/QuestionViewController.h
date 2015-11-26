@@ -14,6 +14,9 @@
 
 @property (strong, nonatomic) User *currentUser;
 
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
+
+
 @property (weak, nonatomic) IBOutlet UIView *questionView;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *questionLevelLabel;

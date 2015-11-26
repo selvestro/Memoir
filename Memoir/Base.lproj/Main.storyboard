@@ -328,7 +328,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
-                                    <button opaque="NO" alpha="0.10000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5GM-ss-Jv3">
+                                    <button opaque="NO" alpha="0.10000000000000001" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5GM-ss-Jv3">
                                         <rect key="frame" x="8" y="8" width="184" height="184"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -357,7 +357,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" alpha="0.10000000000000001" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Y7p-Gr-evb">
+                                    <button opaque="NO" alpha="0.10000000000000001" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Y7p-Gr-evb">
                                         <rect key="frame" x="8" y="8" width="184" height="184"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -386,7 +386,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" alpha="0.10000000000000001" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="boD-6C-IkG">
+                                    <button opaque="NO" alpha="0.10000000000000001" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="boD-6C-IkG">
                                         <rect key="frame" x="8" y="8" width="184" height="184"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -444,6 +444,7 @@
                         <outlet property="questionView" destination="aoa-yV-SMu" id="spd-j6-STr"/>
                         <outlet property="resultLabel" destination="N2b-KV-Auq" id="Xgs-F9-L2a"/>
                         <outlet property="resultView" destination="nqY-Da-mnC" id="BWs-im-rGa"/>
+                        <outlet property="timerLabel" destination="aaU-5l-1QX" id="6sf-jr-LkO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="msH-M6-bYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
