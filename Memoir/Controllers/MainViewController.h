@@ -14,5 +14,6 @@
 
 @property (strong, nonatomic) NSArray *users;
 @property (strong, nonatomic) User *currentUser;
+@property (assign, nonatomic) NSInteger timerDefault;
 
 @end

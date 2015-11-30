@@ -16,7 +16,6 @@
 @property (strong, nonatomic) Question *question;
 @property (strong, nonatomic) NSTimer *timer;
 @property (assign, nonatomic) BOOL isAnswered;
-@property (assign, nonatomic) NSInteger timeLeft;
 @end
 
 @implementation QuestionViewController
@@ -35,14 +34,41 @@
     self.answerThreeView.hidden = YES;
   }
   
-  self.question = [DataManager randomQuestionForTopic:@"russian"
-                                          andCategory:self.currentUser.category];
+  if (self.navigationController.viewControllers.count < 3) {
+    self.currentUser.score = 0;
+  }
+//  self.question = [DataManager randomQuestionForTopic:@"russian"
+//                                          andCategory:self.currentUser.category];
   
+//  self.question = [DataManager randomMathQuestion];
+  self.question = [DataManager randomMathToHundredQuestion];
+
   [self.questionLabel setText:self.question.question];
   
-  [self.answerOneLabel setText:self.question.option1];  
-  [self.answerTwoLabel setText:self.question.option2];
-  [self.answerThreeLabel setText:self.question.option3];
+  NSMutableArray *options = [NSMutableArray arrayWithObjects:
+                             self.question.option1,
+                             self.question.option2,
+                             self.question.option3,
+                             nil];
+  
+  NSInteger index1 = arc4random_uniform(options.count);
+  NSLog(@"INDEX-1: %ld", (long)index1);
+  [self.answerOneLabel setText:options[index1]];
+  [options removeObjectAtIndex:index1];
+  
+  NSInteger index2 = arc4random_uniform(options.count);
+  NSLog(@"INDEX-2: %ld", (long)index2);
+  [self.answerTwoLabel setText:options[index2]];
+  [options removeObjectAtIndex:index2];
+  
+  NSInteger index3 = 0;
+  NSLog(@"INDEX-3: %ld", (long)index3);
+  [self.answerThreeLabel setText:options[index3]];
+  [options removeObjectAtIndex:index3];
+  self.total = self.total + 1;
+
+  [self.totalLabel setText:[NSString stringWithFormat:@"%ld", (long)self.total]];
+  
 }
 
 - (void)updateCounter:(NSTimer *)timer {
@@ -59,25 +85,29 @@
   [self.timer invalidate];
   self.timer = nil;
   self.isAnswered = YES;
-  NSString *answer;
-  switch (sender.tag) {
-    case 1:
-      answer = self.answerOneLabel.text;
-      break;
-    case 2:
-      answer = self.answerTwoLabel.text;
-      break;
-    case 3:
-      answer = self.answerThreeLabel.text;
-      break;
-    default:
-      break;
-  }
-  if ([answer isEqualToString:self.question.answer]) {
-    [self rightAnswer];
-  } else {
-    [self wrongAnswer];
-  }
+
+  if ([self.question.topic isEqualToString:@"russian"] ||
+      [self.question.topic isEqualToString:@"math"]) {
+    NSString *answer;
+    switch (sender.tag) {
+      case 1:
+        answer = self.answerOneLabel.text;
+        break;
+      case 2:
+        answer = self.answerTwoLabel.text;
+        break;
+      case 3:
+        answer = self.answerThreeLabel.text;
+        break;
+      default:
+        break;
+    }
+    if ([answer isEqualToString:self.question.answer]) {
+      [self rightAnswer];
+    } else {
+      [self wrongAnswer];
+    }
+  } 
 }
 
 - (void)rightAnswer {
@@ -128,6 +158,8 @@
     controller = segue.destinationViewController;
     controller.currentUser = self.currentUser;
     controller.navigationItem.hidesBackButton = YES;
+    controller.total = self.total;
+    controller.timerDefault = self.timerDefault;
   }
 }
 
@@ -139,7 +171,7 @@
   [super viewDidAppear:animated];
   
   self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
-  self.timeLeft = 10;
+  self.timeLeft = self.timerDefault;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

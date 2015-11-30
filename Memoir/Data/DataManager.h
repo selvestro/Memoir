@@ -21,4 +21,8 @@
 + (Question *)randomQuestionForTopic:(NSString *)topic
                          andCategory:(NSString *)category;
 
++ (Question *)randomMathQuestion;
+
++ (Question *)randomMathToHundredQuestion;
+
 @end

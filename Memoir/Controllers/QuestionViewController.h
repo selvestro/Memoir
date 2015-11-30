@@ -14,11 +14,19 @@
 
 @property (strong, nonatomic) User *currentUser;
 
+@property (assign, nonatomic) NSInteger total;
+
+@property (assign, nonatomic) NSInteger timerDefault;
+@property (assign, nonatomic) NSInteger timeLeft;
+
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 
 
 @property (weak, nonatomic) IBOutlet UIView *questionView;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *totalLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *questionLevelLabel;
 
 @property (weak, nonatomic) IBOutlet UIView *resultView;

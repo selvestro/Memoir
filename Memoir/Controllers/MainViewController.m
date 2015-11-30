@@ -43,6 +43,10 @@
 @property (weak, nonatomic) IBOutlet UISwitch *userFourSwitch;
 @property (weak, nonatomic) IBOutlet UIView *userFourIndicatorView;
 
+@property (weak, nonatomic) IBOutlet UISlider *timerSlider;
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
+
+
 @end
 
 @implementation MainViewController
@@ -54,6 +58,10 @@
   [DataManager uploadQuestions];
 
   self.users = [DataManager allUsers];
+  
+  self.timerDefault = 10;
+  [self.timerLabel setText:[NSString stringWithFormat:@"%ld", (long)self.timerDefault]];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -137,6 +145,11 @@
   
   [self performSegueWithIdentifier:@"Question" sender:nil];
 }
+- (IBAction)timerSliderChanged:(UISlider *)sender {
+  
+  [self.timerLabel setText:[NSString stringWithFormat:@"%f", sender.value]];
+  
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   
@@ -145,6 +158,7 @@
     controller = segue.destinationViewController;
     controller.currentUser = self.currentUser;
     controller.navigationItem.hidesBackButton = YES;
+    controller.timerDefault = self.timerSlider.value;
   }
   
 }

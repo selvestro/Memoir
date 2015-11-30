@@ -79,13 +79,14 @@
     [question1 setValue:@"russian" forKey:@"topic"];
     [question1 setValue:[NSNumber numberWithBool:YES] forKey:@"isText"];
     [question1 setValue:[NSNumber numberWithBool:YES] forKey:@"withErrors"];
-    [question1 setValue:@"Какой вариант верный?" forKey:@"question"];
-    [question1 setValue:@"параллелепипед" forKey:@"answer"];
-    [question1 setValue:@"пораллелепипед" forKey:@"option1"];
-    [question1 setValue:@"параллелепипед" forKey:@"option2"];
-    [question1 setValue:@"параллелепипед" forKey:@"option3"];
-    [question1 setValue:@"параллелипипед" forKey:@"option4"];
-    [question1 setValue:@"параллелепепед" forKey:@"option5"];
+    [question1 setValue:@"4+7" forKey:@"question"];
+    [question1 setValue:@"11" forKey:@"answer"];
+    
+    [question1 setValue:@"12" forKey:@"option1"];
+    [question1 setValue:@"11" forKey:@"option2"];
+    [question1 setValue:@"14" forKey:@"option3"];
+//    [question1 setValue:@"параллелипипед" forKey:@"option4"];
+//    [question1 setValue:@"параллелепепед" forKey:@"option5"];
     
     NSManagedObject *question2 = [NSEntityDescription insertNewObjectForEntityForName:@"Question" inManagedObjectContext:context];
     [question2 setValue:@2 forKey:@"objectId"];
@@ -95,6 +96,7 @@
     [question2 setValue:[NSNumber numberWithBool:YES] forKey:@"withErrors"];
     [question2 setValue:@"Какой вариант верный?" forKey:@"question"];
     [question2 setValue:@"велосипед" forKey:@"answer"];
+    
     [question2 setValue:@"велосипед" forKey:@"option1"];
     [question2 setValue:@"вилосипед" forKey:@"option2"];
     [question2 setValue:@"вилисипед" forKey:@"option3"];
@@ -182,6 +184,88 @@
   NSLog(@"RANDOM: %lu", (unsigned long)r);
 
   return questions[r];
+}
+
++ (Question *)randomMathQuestion {
+  
+  AppDelegate *app = [[UIApplication sharedApplication] delegate];
+  
+  NSManagedObjectContext *context = app.managedObjectContext;
+  
+  Question *question = [NSEntityDescription insertNewObjectForEntityForName:@"Question" inManagedObjectContext:context];
+  [question setValue:@1 forKey:@"objectId"];
+  [question setValue:@"2" forKey:@"category"];
+  [question setValue:@"math" forKey:@"topic"];
+  [question setValue:[NSNumber numberWithBool:YES] forKey:@"isText"];
+  [question setValue:[NSNumber numberWithBool:YES] forKey:@"withErrors"];
+  
+  NSInteger q1 = arc4random_uniform(10);
+  NSInteger q2 = arc4random_uniform(10);
+
+  NSInteger answer = q1 + q2;
+  
+  NSInteger lower = answer - 2;
+  NSInteger upper = answer + 2;
+  
+  NSInteger option1 = [self randomNumberBetween:lower maxNumber:upper];
+  NSInteger option2 = [self randomNumberBetween:lower maxNumber:upper];
+  NSInteger option3 = [self randomNumberBetween:lower maxNumber:upper];
+
+  NSString *q = [NSString stringWithFormat:@"%ld+%ld", (long)q1, (long)q2];
+  [question setValue:q forKey:@"question"];
+  [question setValue:[NSString stringWithFormat:@"%ld", (long)answer] forKey:@"answer"];
+  
+  [question setValue:[NSString stringWithFormat:@"%ld", (long)option1] forKey:@"option1"];
+  [question setValue:[NSString stringWithFormat:@"%ld", (long)answer] forKey:@"option2"];
+  [question setValue:[NSString stringWithFormat:@"%ld", (long)option3] forKey:@"option3"];
+  
+  NSLog(@"QUESTION: %@, ANSWER: %ld, \nOPTION1: %ld, \nOPTION2: %ld, \nOPTION3: %ld", q, (long)answer, (long)option1, (long)option2, (long)option3);
+  
+  return question;
+}
+
++ (Question *)randomMathToHundredQuestion {
+  
+  AppDelegate *app = [[UIApplication sharedApplication] delegate];
+  
+  NSManagedObjectContext *context = app.managedObjectContext;
+  
+  Question *question = [NSEntityDescription insertNewObjectForEntityForName:@"Question" inManagedObjectContext:context];
+  [question setValue:@1 forKey:@"objectId"];
+  [question setValue:@"2" forKey:@"category"];
+  [question setValue:@"math" forKey:@"topic"];
+  [question setValue:[NSNumber numberWithBool:YES] forKey:@"isText"];
+  [question setValue:[NSNumber numberWithBool:YES] forKey:@"withErrors"];
+  
+  NSInteger q1 = arc4random_uniform(50);
+  NSInteger q2 = arc4random_uniform(50);
+  
+  NSInteger answer = q1 + q2;
+  
+  NSInteger lower = answer - 10;
+  NSInteger upper = answer + 10;
+  
+  NSInteger option1 = [self randomNumberBetween:lower maxNumber:upper];
+  NSInteger option2 = [self randomNumberBetween:lower maxNumber:upper];
+  NSInteger option3 = [self randomNumberBetween:lower maxNumber:upper];
+  
+  NSString *q = [NSString stringWithFormat:@"%ld+%ld", (long)q1, (long)q2];
+  [question setValue:q forKey:@"question"];
+  [question setValue:[NSString stringWithFormat:@"%ld", (long)answer] forKey:@"answer"];
+  
+  [question setValue:[NSString stringWithFormat:@"%ld", (long)option1] forKey:@"option1"];
+  [question setValue:[NSString stringWithFormat:@"%ld", (long)answer] forKey:@"option2"];
+  [question setValue:[NSString stringWithFormat:@"%ld", (long)option3] forKey:@"option3"];
+  
+  NSLog(@"QUESTION: %@, ANSWER: %ld, \nOPTION1: %ld, \nOPTION2: %ld, \nOPTION3: %ld", q, (long)answer, (long)option1, (long)option2, (long)option3);
+  
+  return question;
+}
+
+
++ (NSInteger)randomNumberBetween:(NSInteger)min maxNumber:(NSInteger)max
+{
+  return min + arc4random_uniform(max - min + 1);
 }
 
 + (void)saveToLocalFile {
